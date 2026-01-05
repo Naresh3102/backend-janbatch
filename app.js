@@ -1,59 +1,29 @@
 const express = require("express");
+const mongoose = require("mongoose");
 
 const app = express();
 
-// http://localhost:5000/something
+// MVC
+// M - Model - Database Schema - About your table
+// V - View - Frontend - React
+// C - Controller - HTTP request and response
 
-// CRUD -
-// CREATE - POST
-// READ - GET
-// UPDATE - PUT, PATCH
-// DELETE - DELETE
-
-// 100 -
-// 300 - Redirection
-
-// 200 - Success series(200, 201, 204, etc.,)
-// 200 - OK
-// 201 - CREATED
-// 204 - NO CONTENT -delecting
-
-// 400 - Client error(400, 401, 403, 404, etc.,)
-// 400 - BAD REQUEST
-// 401 - Unauthorized
-// 403 - Forbidden
-// 404 - Not found
-
-// 500 - Server error(500, 503, 504, etc.,)
-// 500 - Internal server error
-
-app.get("/", (req, res) => {
-  res.status(200).json({
-    name: "saran",
-    age: 456,
-    skills: [],
-    address: {},
-  });
-});
-
-app.get("/n", (req, res) => {
+app.post("/", (req, res) => {
   res.json({
-    name: "naresh",
-    age: 456,
-    skills: [],
-    address: {},
+    message: "Welcome to my server",
   });
 });
 
-app.post("/n", (req, res) => {
-  res.json({
-    name: "naresh",
-    age: 456,
-    skills: [],
-    address: {},
+mongoose
+  .connect(
+    "mongodb+srv://snaresh3102:Naresh123@cluster0.zvtj99e.mongodb.net/janbatch"
+  )
+  .then(() => {
+    console.log("DB connected");
+    app.listen(5000, () => {
+      console.log("Server is running");
+    });
+  })
+  .catch((err) => {
+    console.log("Connection failed: ", err.message);
   });
-});
-
-app.listen(5000, () => {
-  console.log("Server is running");
-});

@@ -1,18 +1,19 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bookRoutes = require("./routes/bookRoutes");
 
 const app = express();
 
-// MVC
-// M - Model - Database Schema - About your table
-// V - View - Frontend - React
-// C - Controller - HTTP request and response
+app.use(express.json());
+// app.use(bodyParser()) - No need
 
-app.post("/", (req, res) => {
+app.get("/", (req, res) => {
   res.json({
     message: "Welcome to my server",
   });
 });
+
+app.use("/api", bookRoutes);
 
 mongoose
   .connect(

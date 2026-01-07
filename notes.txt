@@ -1,0 +1,86 @@
+Class Component - 
+Function component - 
+
+1. Mounting - Component added to page
+2. Updating - Component is re-rendered
+3. Unmounting - Component is removed from the page
+
+Class component: (Lifecycle methods)
+componentDidMount()
+componentDidUpdate()
+componentWillUnmount()
+
+Function component: useEffect()
+
+useEffect(() => {
+
+}, [])
+
+useEffect(() => {
+
+}, [value])
+
+useEffect(() => {
+
+})
+
+useEffect(() => {
+
+return () => {
+
+}
+})
+
+
+
+Page - 1 Size - 20
+
+1 - 20
+
+Page - 2 Size - 20
+
+(page - 1) * size = 20
+
+21 - 40
+
+
+
+
+Authentication - Who are you
+
+Username/Email
+password
+
+Registration - Already register or not
+Login - Check db for the details, then password is correct or not
+
+JWT - Json Web Token
+header.payload(data).signature
+
+We will use secret key to create the token
+send the token in response after login success
+
+payload = {
+	naresh312
+	user
+}
+
+
+payload = {
+	naresh312
+	admin
+}
+
+sign - to create token
+verify - to validate the token - You can get the payload
+
+But both with same secret key
+
+
+Authorisation - What you can do
+
+
+
+
+
+

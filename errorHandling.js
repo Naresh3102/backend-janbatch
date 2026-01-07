@@ -1,7 +1,13 @@
 exports.errorHandler = (err, req, res, next) => {
+  console.log(Object.values(err.errors)[0]);
+
   // 1. ValidationError
   if (err.name === "ValidationError") {
-    const errors = Object.values(err.errors).map((el) => el.message);
+    const errors = Object.values(err.errors).map((el) => ({
+      field: el.properties.path,
+      message: el.message,
+      wrongValue: el.properties.value,
+    }));
 
     return res.status(400).json({
       message: "Invalid data",

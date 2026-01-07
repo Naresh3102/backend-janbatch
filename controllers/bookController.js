@@ -1,6 +1,6 @@
 const Book = require("../models/Book");
 
-const createBook = async (req, res) => {
+const createBook = async (req, res, next) => {
   try {
     const { name, price, rating, author, pages } = req.body;
     const newBook = await Book.create({
@@ -15,10 +15,7 @@ const createBook = async (req, res) => {
       book: newBook,
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
 
@@ -63,10 +60,7 @@ const getAllBooks = async (req, res) => {
       totalPages,
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
 
@@ -86,10 +80,7 @@ const getBookById = async (req, res) => {
       book,
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
 
@@ -115,10 +106,7 @@ const updateBook = async (req, res) => {
       book,
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
 
@@ -140,10 +128,7 @@ const deleteBook = async (req, res) => {
       book,
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
 

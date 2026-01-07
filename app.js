@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bookRoutes = require("./routes/bookRoutes");
+const { errorHandler } = require("./errorHandling");
 
 const app = express();
 
@@ -14,6 +15,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", bookRoutes);
+
+app.use(errorHandler);
 
 mongoose
   .connect(

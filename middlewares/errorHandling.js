@@ -1,5 +1,5 @@
 exports.errorHandler = (err, req, res, next) => {
-  console.log(Object.values(err.errors)[0]);
+  console.log(err);
 
   // 1. ValidationError
   if (err.name === "ValidationError") {

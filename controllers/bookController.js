@@ -21,8 +21,7 @@ const createBook = async (req, res, next) => {
 
 const getAllBooks = async (req, res) => {
   try {
-    console.log(req.query);
-    console.log(req.query.category.split(","));
+    console.log(req.headers);
 
     const pageNumber = parseInt(req.query.page || 1);
     const pageSize = parseInt(req.query.size || 5);

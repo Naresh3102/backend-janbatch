@@ -80,7 +80,10 @@ But both with same secret key
 Authorisation - What you can do
 
 
+CORS - Cross Origin Resource Sharing
 
+Frontend - 5173
+Backend - 5000
 
 
 

@@ -13,7 +13,7 @@ const { protect, authorize } = require("../middlewares/authMiddlewares");
 const bookRouter = express.Router();
 
 // Step 3
-bookRouter.post("/books", createBook);
+bookRouter.post("/books", authorize("ADMIN"), createBook);
 
 bookRouter.get("/books", getAllBooks);
 

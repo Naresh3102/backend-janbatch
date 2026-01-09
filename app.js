@@ -5,15 +5,21 @@ const { errorHandler } = require("./middlewares/errorHandling");
 const authRouter = require("./routes/authRoutes");
 const dotenv = require("dotenv");
 const { protect } = require("./middlewares/authMiddlewares");
+const cors = require("cors");
 
 dotenv.config();
 const app = express();
-// app.use(cors());
 app.use(
   cors({
     origin: process.env.CLIENT_URL,
   })
 );
+// app.use(
+//   cors({
+//     origin: [process.env.CLIENT_URL, "http://localhost:3000"],
+//     // credentials: true
+//   })
+// );
 
 app.use(express.json());
 // app.use(bodyParser()) - No need
